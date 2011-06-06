@@ -2,7 +2,7 @@
 
 echo 'cocos2d-iphone template installer'
 
-COCOS2D_VER='cocos2d 1.0.0'
+COCOS2D_VER='gles20cocos2d 1.0.0'
 BASE_TEMPLATE_DIR="/Library/Application Support/Developer/Shared/Xcode"
 BASE_TEMPLATE_USER_DIR="$HOME/Library/Application Support/Developer/Shared/Xcode"
 SCRIPT_DIR=$(dirname $0)
@@ -255,7 +255,7 @@ copy_xcode3_file_templates(){
 
 # Xcode4 templates
 copy_xcode4_project_templates(){
-	TEMPLATE_DIR="$HOME/Library/Developer/Xcode/Templates/cocos2d/"
+	TEMPLATE_DIR="$HOME/Library/Developer/Xcode/Templates/gles20cocos2d/"
 
 	print_template_banner "Installing Xcode 4 cocos2d iOS template"
 
