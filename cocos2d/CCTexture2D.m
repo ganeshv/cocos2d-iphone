@@ -145,6 +145,9 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 			case kCCTexture2DPixelFormat_A8:
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, (GLsizei) width, (GLsizei) height, 0, GL_ALPHA, GL_UNSIGNED_BYTE, data);
 				break;
+			case kCCTexture2DPixelFormat_BGRA8888:
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei) width, (GLsizei) height, 0, GL_BGRA_EXT, GL_UNSIGNED_BYTE, data);
+				break;			
 			default:
 				[NSException raise:NSInternalInconsistencyException format:@""];
 				
@@ -775,6 +778,7 @@ static BOOL PVRHaveAlphaPremultiplied_ = NO;
 
 	switch (format_) {
 		case kCCTexture2DPixelFormat_RGBA8888:
+		case kCCTexture2DPixelFormat_BGRA8888:
 			ret = 32;
 			break;
 		case kCCTexture2DPixelFormat_RGB565:

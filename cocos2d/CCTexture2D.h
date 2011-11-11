@@ -103,6 +103,9 @@ typedef enum {
 
 	//! Default texture format: RGBA8888
 	kCCTexture2DPixelFormat_Default = kCCTexture2DPixelFormat_RGBA8888,
+
+    // BGRA hack
+    kCCTexture2DPixelFormat_BGRA8888=564,
 	
 } CCTexture2DPixelFormat;
 
