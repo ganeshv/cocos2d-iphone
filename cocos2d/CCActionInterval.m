@@ -856,6 +856,18 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 	float x = bezierat(xa, xb, xc, xd, t);
 	float y = bezierat(ya, yb, yc, yd, t);
 	[target_ setPosition:  ccpAdd( startPosition_, ccp(x,y))];
+    
+    // calculate the rotation in degrees
+    // find the point in time t with a quadratic bezier of the first 3 points
+    float qx = (powf(1-t,2)*xa + 2*(1-t)*t*xb+powf(t,2)*xc);
+    float qy = (powf(1-t,2)*ya + 2*(1-t)*t*yb+powf(t,2)*yc);
+    
+    // the tangent is equal to the slope between the position point and the point on the quadradic bezier
+    double deltaX = x-qx;
+    double deltaY = y-qy;
+    
+    double degrees = 180 - (180/M_PI)*ccpToAngle(CGPointMake(deltaX,deltaY));
+    [target_ setRotation: degrees];
 }
 
 - (CCActionInterval*) reverse
