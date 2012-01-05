@@ -863,10 +863,8 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
     float qy = (powf(1-t,2)*ya + 2*(1-t)*t*yb+powf(t,2)*yc);
     
     // the tangent is equal to the slope between the position point and the point on the quadradic bezier
-    double deltaX = x-qx;
-    double deltaY = y-qy;
-    
-    double degrees = 180 - (180/M_PI)*ccpToAngle(CGPointMake(deltaX,deltaY));
+    CGPoint delta = CGPointMake(x - qx, y - qy);
+    float degrees = 180.0 - (180.0/M_PI)*ccpToAngle(delta);
     [target_ setRotation: degrees];
 }
 
